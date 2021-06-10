@@ -6,7 +6,7 @@ use InvalidArgumentException;
 use Prometheus\Storage\Adapter;
 use Prometheus\Storage\APC;
 use Prometheus\Storage\InMemory;
-use Prometheus\Storage\Redis;
+use Prometheus\Storage\RedisStorage;
 
 class StorageAdapterFactory
 {
@@ -37,13 +37,13 @@ class StorageAdapterFactory
      *
      * @param array $config
      *
-     * @return Redis
+     * @return RedisStorage
      */
     protected function makeRedisAdapter(array $config)
     {
         if (isset($config['prefix'])) {
             Redis::setPrefix($config['prefix']);
         }
-        return new Redis($config);
+        return new RedisStorage($config);
     }
 }

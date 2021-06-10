@@ -5,7 +5,7 @@ namespace Tests;
 use PHPUnit\Framework\TestCase;
 use Prometheus\Storage\APC;
 use Prometheus\Storage\InMemory;
-use Prometheus\Storage\Redis;
+use Prometheus\Storage\RedisStorage;
 use Superbalist\LaravelPrometheusExporter\StorageAdapterFactory;
 
 class StorageAdapterFactoryTest extends TestCase
@@ -28,7 +28,7 @@ class StorageAdapterFactoryTest extends TestCase
     {
         $factory = new StorageAdapterFactory();
         $adapter = $factory->make('redis');
-        $this->assertInstanceOf(Redis::class, $adapter);
+        $this->assertInstanceOf(RedisStorage::class, $adapter);
     }
 
     public function testMakeInvalidAdapter()
