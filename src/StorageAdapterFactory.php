@@ -42,7 +42,7 @@ class StorageAdapterFactory
     protected function makeRedisAdapter(array $config)
     {
         if (isset($config['prefix'])) {
-            Redis::setPrefix($config['prefix']);
+            RedisStorage::setPrefix($config['prefix']);
         }
         return new RedisStorage($config);
     }
