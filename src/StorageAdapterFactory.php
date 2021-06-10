@@ -34,9 +34,6 @@ class StorageAdapterFactory
 
     /**
      * Factory a redis storage adapter.
-     *
-     * @param array $config
-     *
      * @return RedisStorage
      */
     protected function makeRedisAdapter(array $config)
@@ -44,6 +41,6 @@ class StorageAdapterFactory
         if (isset($config['prefix'])) {
             RedisStorage::setPrefix($config['prefix']);
         }
-        return new RedisStorage($config);
+        return new RedisStorage();
     }
 }
